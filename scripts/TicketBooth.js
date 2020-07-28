@@ -7,7 +7,11 @@ contentTarget.addEventListener("click", clickEvent => {
         if (clickEvent.target.id.startsWith("ride")){
         const ridePurchaseEvent = new CustomEvent("rideTicketPurchased")
         eventHub.dispatchEvent(ridePurchaseEvent)        
-    }
+        } 
+        else if (clickEvent.target.id.startsWith("food")){
+            const foodPurchaseEvent = new CustomEvent("foodTicketPurchased")
+            eventHub.dispatchEvent(foodPurchaseEvent)        
+            }
 })
 
 // ride ticket button 
