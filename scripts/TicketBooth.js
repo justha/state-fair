@@ -3,19 +3,19 @@ const eventHub = document.querySelector("#state-fair")
 
 
 // event listener to dispatch ride ticket purchased
-contentTarget.addEventListener("click", (clickEvent) => {
-    const rideEvent = new CustomEvent("rideTicketPurchased")
-
-    eventHub.dispatchEvent(rideEvent)
+contentTarget.addEventListener("click", clickEvent => {
+        if (clickEvent.target.id.startsWith("ride")){
+        const ridePurchaseEvent = new CustomEvent("rideTicketPurchased")
+        eventHub.dispatchEvent(ridePurchaseEvent)        
+    }
 })
-
 
 // ride ticket button 
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
-        <div class="ticketBooth">
+        <div class="ticketBooth">Ticket Booth<br>
             <button id="rideTicket">Ride Ticket</button>
+            <button id="foodTicket">Food Ticket</button>
         </div>
     `
 }
-
