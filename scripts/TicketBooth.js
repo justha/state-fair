@@ -26,7 +26,7 @@ contentTarget.addEventListener("click", clickEvent => {
             }
 })
 
-// ride ticket button 
+// ticket buttons
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">Ticket Booth<br>

@@ -14,3 +14,6 @@ GameTicketHolders()
 
 import { SideshowTicketHolders } from "./sideshows/SideshowTicketHolders.js";
 SideshowTicketHolders()
+
+import { totalTicketCount } from "./Customers.js";
+totalTicketCount()
