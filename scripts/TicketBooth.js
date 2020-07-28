@@ -2,7 +2,7 @@ const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
 
 
-// event listener to dispatch ride ticket purchased
+// event listener to "dispatch" ride ticket purchased
 contentTarget.addEventListener("click", clickEvent => {
         if (clickEvent.target.id.startsWith("ride")){
         const ridePurchaseEvent = new CustomEvent("rideTicketPurchased")
@@ -12,10 +12,14 @@ contentTarget.addEventListener("click", clickEvent => {
             const foodPurchaseEvent = new CustomEvent("foodTicketPurchased")
             eventHub.dispatchEvent(foodPurchaseEvent)        
             }
-            else if (clickEvent.target.id.startsWith("game")){
-                const gamePurchaseEvent = new CustomEvent("gameTicketPurchased")
-                eventHub.dispatchEvent(gamePurchaseEvent)        
-                }
+        else if (clickEvent.target.id.startsWith("game")){
+            const gamePurchaseEvent = new CustomEvent("gameTicketPurchased")
+            eventHub.dispatchEvent(gamePurchaseEvent)        
+            }
+        else if (clickEvent.target.id.startsWith("sideshow")){
+            const sideshowPurchaseEvent = new CustomEvent("sideshowTicketPurchased")
+            eventHub.dispatchEvent(sideshowPurchaseEvent)        
+            }
 })
 
 // ride ticket button 
