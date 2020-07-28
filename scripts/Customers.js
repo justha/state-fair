@@ -3,6 +3,13 @@ const eventHub = document.querySelector("#state-fair")
 
 
 export const totalTicketCount = () => {
-    let totalTicketsState = 0
-    contentTarget.innerHTML = `Total tickets purchased: ${totalTicketsState}`
+
+    let totalTickets = 0
+
+    eventHub.addEventListener("rideTicketPurchased", customEvent => {
+        totalTickets += 1    
+        contentTarget.innerHTML = `Total tickets purchased: ${totalTickets}` 
+    })
+    
+
 }
