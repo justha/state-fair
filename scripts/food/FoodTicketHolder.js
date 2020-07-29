@@ -7,7 +7,7 @@ export const FoodTicketHolders = () => {
             <div class="person eater">1</div>
         `            
     })
-    eventHub.addEventListener("fullTicketPurchased", customEvent => {
+    eventHub.addEventListener("fullPackagePurchased", customEvent => {
         contentTarget.innerHTML += `
             <div class="person bigSpender">1</div>
         `            
