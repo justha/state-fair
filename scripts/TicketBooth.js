@@ -2,10 +2,10 @@ const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
 
 
-// event listener to "dispatch" ride ticket purchased
+// event listener to dispatch ticket purchased message for color boxes/tallies
 contentTarget.addEventListener("click", clickEvent => {
         if (clickEvent.target.id.startsWith("full")){
-        const fullPurchaseEvent = new CustomEvent("fullTicketPurchased")
+        const fullPurchaseEvent = new CustomEvent("fullPackagePurchased")
         eventHub.dispatchEvent(fullPurchaseEvent)        
         } 
         else if (clickEvent.target.id.startsWith("ride")){
@@ -26,15 +26,33 @@ contentTarget.addEventListener("click", clickEvent => {
             }
 })
 
-// ride ticket button 
+
+// event listener to dispatch ticket purchased message for color boxes/tallies
+contentTarget.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("full")){
+    const fullPurchaseEvent = new CustomEvent("packageCount")
+    eventHub.dispatchEvent(fullPurchaseEvent)        
+    } 
+    else if (clickEvent.target.id.startsWith("ride") || 
+            clickEvent.target.id.startsWith("food") || 
+            clickEvent.target.id.startsWith("game") || 
+            clickEvent.target.id.startsWith("sideshow"))
+                {
+                const ridePurchaseEvent = new CustomEvent("ticketCount")
+                eventHub.dispatchEvent(ridePurchaseEvent)        
+                }
+})
+
+
+// ticket buttons
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">Ticket Booth<br>
-            <button id="rideTicket">Ride Ticket</button>
-            <button id="foodTicket">Food Ticket</button>
-            <button id="gameTicket">Game Ticket</button>
-            <button id="sideshowTicket">Sideshow Ticket</button>
-            <button id="fullTicket">Full Package Ticket</button>
+            <button id="rideTicket">Ride</button>
+            <button id="foodTicket">Food</button>
+            <button id="gameTicket">Game</button>
+            <button id="sideshowTicket">Sideshow</button>
+            <button id="fullPackage">Full Package</button>
         </div>
     `
 }
